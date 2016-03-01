@@ -1,4 +1,9 @@
-#Api workbench
+# reks.io Api Documentation
 
-* use atom
+##Api workbench
+
+* use atom.io
 * Install http://apiworkbench.com/
+
+#Github pages deploy
+Here is a simple [example](https://gist.github.com/cobyism/473049)
