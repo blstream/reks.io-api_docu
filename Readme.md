@@ -6,4 +6,4 @@
 * Install http://apiworkbench.com/
 
 #Github pages deploy
-Here is a simple [example](https://gist.github.com/cobyism/473049)
+Here is a simple [example](https://gist.github.com/cobyism/4730490)
