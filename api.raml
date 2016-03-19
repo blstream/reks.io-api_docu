@@ -38,6 +38,13 @@ securedBy: basic
               Location of the newly created resource
             type: string
             required: false
+  get:
+    description: |
+      Retrieve resource
+    responses:
+      200:
+        description: |
+          Succesfully retrieved resource
         body:
           application/json:
             schema: |
@@ -52,13 +59,6 @@ securedBy: basic
                   "satan3"
                 ]
               }
-  get:
-    description: |
-      Retrieve resource
-    responses:
-      200:
-        description: |
-          Succesfully retrieved resource
 
 /Links:
   get:
