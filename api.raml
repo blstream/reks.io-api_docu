@@ -38,6 +38,20 @@ securedBy: basic
               Location of the newly created resource
             type: string
             required: false
+        body:
+          application/json:
+            schema: |
+              {
+                "subscribedGroupsIDs": [ "string" ]
+              }
+            example: |
+              {
+                "subscribedGroupsIDs": [
+                  "satan1",
+                  "satan2",
+                  "satan3"
+                ]
+              }
   get:
     description: |
       Retrieve resource
@@ -90,7 +104,7 @@ securedBy: basic
 /Groups:
   get:
     description: |
-      Retrieve count and ids
+      Retrieve count and array of IDs
     queryParameters:
       limitFrom: number
       limitTo: number
