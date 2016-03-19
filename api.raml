@@ -90,11 +90,26 @@ securedBy: basic
 /Groups:
   get:
     description: |
-      Retrieve resource
+      Retrieve count and ids
+    queryParameters:
+      limitFrom: number
+      limitTo: number
     responses:
       200:
         description: |
           Succesfully retrieved resource
+        body:
+          application/json:
+            schema: |
+              {
+                "groupsIDs": [ "string" ],
+                "count": "number"
+              }
+            example: |
+              {
+                "groupsIDs": [ "stan1", "satan2", "satan3" ],
+                "totalCount": 50
+              }
   post:
     description: |
       Create a new resource
