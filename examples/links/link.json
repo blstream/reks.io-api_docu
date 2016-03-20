@@ -3,5 +3,7 @@
   "url": "https://google.com",
   "added_by": "someUsername",
   "date_added": 123456,
+  "votes_up": [ "someUserId", "anotherUserId" ],
+  "votes_down": [ "someUserId", "anotherUserId" ],
   "tags": [ "tag", "othertag", "yetanothertag" ]
 }
