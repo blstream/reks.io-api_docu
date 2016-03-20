@@ -24,7 +24,8 @@ securedBy: [basic]
   /{username}:
     type:  { resType.Member: {item : dataType.User} }
 /Links:
-  type:  { resType.Collection: {item : dataType.Link} }
+  type:  { resType.PageableCollection: {item : dataType.Link} }
+  post:
   /{LinkId}:
     type:  { resType.Member: {item : dataType.Link} }
 
