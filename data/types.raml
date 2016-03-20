@@ -1,0 +1,13 @@
+#%RAML 1.0 Library
+uses:
+  User: !include users/user.raml
+  Group: !include groups/group.raml
+  Link: !include links/link.raml
+  Subscription: !include subscription/subscription.raml
+
+types:
+  User: User.User
+  NewUser: User.NewUser
+  Link: Link.Link
+  Subscription: Subscription.Subscription
+  Group: Group.Group

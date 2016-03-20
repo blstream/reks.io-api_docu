@@ -1,7 +1,8 @@
 #%RAML 1.0
 title: reksio
 uses:
-  types: !include types.raml
+  resType: !include data/common/resourceTypes.raml
+  dataType: !include data/types.raml
 version: v1
 baseUri: http://reks.io
 
@@ -14,46 +15,34 @@ securitySchemes:
 securedBy: [basic]
 
 /Users:
-  type:  { types.Collection: {item : types.User} }
+  type:  { resType.PageableCollection: {item : dataType.User} }
   post:
     securedBy: []
     body:
       application/json:
-        type: types.NewUser
+        type: dataType.NewUser
   /{username}:
-    type:  { types.Member: {item : types.User} }
+    type:  { resType.Member: {item : dataType.User} }
 /Links:
-  type:  { types.Collection: {item : types.Link} }
+  type:  { resType.Collection: {item : dataType.Link} }
   /{LinkId}:
-    type:  { types.Member: {item : types.Link} }
+    type:  { resType.Member: {item : dataType.Link} }
 
 
 /Groups:
-  type: { types.Collection: {item : types.Group} }
+  type: { resType.PageableCollection: {item : dataType.Group} }
+  post:
   /{GroupId}:
-    type:  { types.Member: {item : types.Group} }
+    type:  { resType.Member: {item : dataType.Group} }
     /Subscriptions:
-      get:
-        description: list of users in a group
-        responses:
-          200:
-            body:
-              application/json:
-                type: (types.Subscription)[]
+      type:  { resType.PageableCollection: {item : dataType.Subscription} }
       /{username}:
         put:
           description: add user to a group
         delete:
           description: remove user from a group
     /Links:
-      get:
-        description: get list of associated links
-        responses:
-          200:
-            body:
-              application/json:
-                type: (types.Link)[]
-
+      type:  { resType.PageableCollection: {item : dataType.Link} }
       /{LinkId}:
         put:
           description: add link to a group

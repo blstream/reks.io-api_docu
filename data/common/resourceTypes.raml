@@ -1,0 +1,49 @@
+#%RAML 1.0 Library
+traits:
+  - pageable:
+      queryParameters:
+        offset:
+          type: integer
+          required: false
+          example: 20
+          default: 0
+        limit:
+          type: integer
+          required: false
+          example: 80
+          default: 10
+
+resourceTypes:
+  Collection:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: (<<item>>)[]
+    post?:
+      body:
+        application/json:
+          type: <<item>>
+
+  Member:
+    put:
+      body:
+        application/json:
+          type: <<item>>
+    delete:
+      responses:
+        204:
+  PageableCollection:
+    type:  { Collection: {item : <<item>>} }
+    get:
+      is: [pageable]
+      responses:
+        200:
+          body:
+            application/json:
+              properties:
+                total: number
+                start: number
+                end: number
+                data: (<<item>>)[]

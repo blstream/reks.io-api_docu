@@ -1,0 +1,19 @@
+#%RAML 1.0 Library
+uses:
+  common: !include ../common/dataTypes.raml
+types:
+  User:
+    type: object
+    example: !include user.json
+    properties:
+      date_user_created: common.Date
+      username: string
+  NewUser:
+    type: object
+    example: !include user.new.json
+    properties:
+      username:
+        type: string
+        description: unique username
+      email: common.Email
+      password: string

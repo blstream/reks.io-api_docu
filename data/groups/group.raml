@@ -1,0 +1,14 @@
+#%RAML 1.0 Library
+uses:
+  User: !include ../users/user.raml
+types:
+  Group:
+    type: object
+    example: !include group.json
+    properties:
+      id: string
+      group_name:
+        type: string
+        description: Unique group id without spaces?
+      avatar: string
+      creator: User.User

@@ -1,0 +1,11 @@
+#%RAML 1.0 Library
+uses:
+  User: !include ../users/user.raml
+  common: !include ../common/dataTypes.raml
+
+types:
+  Subscription:
+    type: User.User
+    example: !include subscription.json
+    properties:
+      date_subscription_created: common.Date

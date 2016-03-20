@@ -1,0 +1,16 @@
+#%RAML 1.0 Library
+uses:
+  User: !include ../users/user.raml
+  common: !include ../common/dataTypes.raml
+types:
+  Link:
+    type: object
+    example: !include link.json
+    properties:
+      link_id: string
+      url: string
+      added_by: User.User
+      date_added: common.Date
+      tags:
+        type: string[]
+        uniqueItems: true
