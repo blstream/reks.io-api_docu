@@ -1,5 +1,7 @@
 #%RAML 1.0
 title: reksio
+uses:
+  types: !include types.raml
 version: v1
 baseUri: http://reks.io
 
@@ -9,139 +11,51 @@ securitySchemes:
       basic authorization https://tools.ietf.org/html/rfc2617
     type: Basic Authentication
 
-securedBy: basic
+securedBy: [basic]
 
 /Users:
+  type:  { types.Collection: {item : types.User} }
   post:
     securedBy: []
-    description: |
-      Add new user
     body:
       application/json:
-        schema: |
-          {
-            "email": "string",
-            "password": "string"
-          }
-        example: |
-          {
-            "email": "example@example.com",
-            "password": "alamakota"
-          }
-    responses:
-      201:
-        description: |
-          Succesfully created a new resource
-        headers:
-          Location:
-            description: |
-              Location of the newly created resource
-            type: string
-            required: false
-  get:
-    description: |
-      Retrieve resource
-    responses:
-      200:
-        description: |
-          Succesfully retrieved resource
-
+        type: types.NewUser
+  /{username}:
+    type:  { types.Member: {item : types.User} }
 /Links:
-  get:
-    description: |
-      Retrieve resource
-    responses:
-      200:
-        description: |
-          Succesfully retrieved resource
-  post:
-    description: |
-      Create a new resource
-    body:
-      application/json: !!null
-    responses:
-      201:
-        description: |
-          Succesfully created a new resource
-        headers:
-          Location:
-            description: |
-              Location of the newly created resource
-            type: string
-            required: false
+  type:  { types.Collection: {item : types.Link} }
   /{LinkId}:
-    delete:
-      description: |
-        Delete resource
-      responses:
-        204:
-          description: |
-            Succesfully deleted resource
-    put:
-      description: |
-        Update an existing resource
-      body:
-        application/json:
-      responses:
-        204:
-          description: |
-            Succesfully updated the resource
+    type:  { types.Member: {item : types.Link} }
+
 
 /Groups:
-  get:
-    description: |
-      Retrieve resource
-    responses:
-      200:
-        description: |
-          Succesfully retrieved resource
-  post:
-    description: |
-      Create a new resource
-    body:
-      application/json: !!null
-    responses:
-      201:
-        description: |
-          Succesfully created a new resource
-        headers:
-          Location:
-            description: |
-              Location of the newly created resource
-            type: string
-            required: false
+  type: { types.Collection: {item : types.Group} }
   /{GroupId}:
-    get:
-      description: |
-        Retrieve group
-      responses:
-        200:
-          description: |
-            Succesfully retrieved resource
-          body:
-            application/json:
-              example: !include "examples/groups/group.example.json"
-              schema: !include "examples/groups/group.schema.json"
+    type:  { types.Member: {item : types.Group} }
     /Subscriptions:
-      post:
-        description: |
-          Subscribe to a group
-        body:
-          application/json: !!null
-        responses:
-          201:
-            description: |
-              Succesfully created a new resource
-            headers:
-              Location:
-                description: |
-                  Location of the newly created resource
-                type: string
-                required: false
       get:
-        description: |
-          Retrieve resource
+        description: list of users in a group
         responses:
           200:
-            description: |
-              Succesfully retrieved resource
+            body:
+              application/json:
+                type: (types.Subscription)[]
+      /{username}:
+        put:
+          description: add user to a group
+        delete:
+          description: remove user from a group
+    /Links:
+      get:
+        description: get list of associated links
+        responses:
+          200:
+            body:
+              application/json:
+                type: (types.Link)[]
+
+      /{LinkId}:
+        put:
+          description: add link to a group
+        delete:
+          description: remove link from a group

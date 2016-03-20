@@ -1,0 +1,68 @@
+#%RAML 1.0 Library
+resourceTypes:
+  Collection:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: (<<item>>)[]
+    post:
+      body:
+        application/json:
+          type: <<item>>
+
+  Member:
+    put:
+      body:
+        application/json:
+          type: <<item>>
+    delete:
+      responses:
+        204:
+types:
+  Date:
+    type: number
+    description: Unix time format
+  Email:
+    type: string
+    pattern: '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+  Group:
+    type: object
+    example: !include examples/groups/group.json
+    properties:
+      id: string
+      name: string
+      avatar: string
+  Subscription:
+    type: User
+    example: !include examples/subscription/subscription.json
+    properties:
+      date_subscription_created: Date
+  User:
+    type: object
+    example: !include examples/users/user.json
+    properties:
+      id: string
+      date_user_created: Date
+      username: string
+  NewUser:
+    type: object
+    example: !include examples/users/user.new.json
+    properties:
+      username:
+        type: string
+        description: unique username
+      email: Email
+      password: string
+  Link:
+    type: object
+    example: !include examples/links/link.json
+    properties:
+      link_id: string
+      url: string
+      added_by: string
+      date_added: Date
+      tags:
+        type: string[]
+        uniqueItems: true

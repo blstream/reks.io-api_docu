@@ -1,0 +1,7 @@
+{
+  "link_id": "someLinkID",
+  "url": "https://google.com",
+  "added_by": "someUsername",
+  "date_added": 123456,
+  "tags": [ "tag", "othertag", "yetanothertag" ]
+}
