@@ -21,6 +21,8 @@ resourceTypes:
       responses:
         204:
 types:
+  ID:
+    type: string
   Date:
     type: number
     description: Unix time format
@@ -43,7 +45,7 @@ types:
     type: object
     example: !include examples/users/user.json
     properties:
-      id: string
+      id: ID
       date_user_created: Date
       username: string
   NewUser:
@@ -63,6 +65,12 @@ types:
       url: string
       added_by: string
       date_added: Date
+      votes_up:
+        type: ID[]
+        uniqueItems: true
+      votes_down:
+        type: ID[]
+        uniqueItems: true
       tags:
         type: string[]
         uniqueItems: true
