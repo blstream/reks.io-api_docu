@@ -11,6 +11,11 @@ types:
       url: string
       added_by: User.User
       date_added: common.Date
+      votes_counter:
+        type: object
+        properties:
+          up: number
+          down: number
       tags:
         type: string[]
         uniqueItems: true
