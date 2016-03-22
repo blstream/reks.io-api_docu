@@ -5,6 +5,10 @@
     "username": "someUsername",
     "date_user_created": 1234
   },
+  "votes_counter": {
+    "up": 10,
+    "down": 50
+  },
   "date_added": 123456,
   "tags": [ "tag", "othertag", "yetanothertag" ]
 }
