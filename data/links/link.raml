@@ -11,11 +11,20 @@ types:
       url: string
       added_by: User.User
       date_added: common.Date
-      votes_counter:
+      meta:
         type: object
-        properties:
-          up: number
-          down: number
+        description: |
+          container for additional data returned from server e.g.
+          short link, description, title etc.
+        required: false
+      tags:
+        type: string[]
+        uniqueItems: true
+  NewLink:
+    type: object
+    example: !include link.new.json
+    properties:
+      url: string
       tags:
         type: string[]
         uniqueItems: true

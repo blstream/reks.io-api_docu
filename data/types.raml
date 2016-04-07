@@ -3,11 +3,14 @@ uses:
   User: !include users/user.raml
   Group: !include groups/group.raml
   Link: !include links/link.raml
+  Vote: !include votes/votes.raml
   Subscription: !include subscription/subscription.raml
 
 types:
   User: User.User
   NewUser: User.NewUser
   Link: Link.Link
+  NewLink: Link.NewLink
   Subscription: Subscription.Subscription
   Group: Group.Group
+  UserVote: Vote.UserVote
