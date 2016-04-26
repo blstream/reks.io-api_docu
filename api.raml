@@ -25,6 +25,12 @@ securedBy: [basic]
     type:  { resType.Member: {item : dataType.User} }
     /Votes:
       type: { resType.PageableCollection: {item : dataType.UserVote} }
+      post:
+        body:
+          application/json:
+            type: dataType.UserVote
+      /{LinkId}:
+        type: { resType.Member: {item : dataType.Vote} }
 
 /Links:
   type:  { resType.PageableCollection: {item : dataType.Link} }
@@ -37,7 +43,14 @@ securedBy: [basic]
     type:  { resType.Member: {item : dataType.Link} }
     /Stats:
       description: stats for link
-
+    /Votes:
+      type: { resType.PageableCollection: {item : dataType.LinkVote} }
+      post:
+        body:
+          application/json:
+            type: dataType.LinkVote
+      /{username}:
+        type: { resType.Member: {item : dataType.Vote} }
 
 /Groups:
   type: { resType.PageableCollection: {item : dataType.Group} }
