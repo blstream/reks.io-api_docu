@@ -1,0 +1,14 @@
+{
+  "link":{
+    "link_id": "someLinkID",
+    "url": "https://google.com",
+    "added_by": {
+      "username": "someUsername",
+      "date_user_created": 1234
+    },
+    "date_added": 123456,
+    "tags": [ "tag", "othertag", "yetanothertag" ]
+  },
+  "grade": "up",
+  "date_voted": 12345678
+}

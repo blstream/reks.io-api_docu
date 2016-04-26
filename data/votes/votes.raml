@@ -1,0 +1,24 @@
+#%RAML 1.0 Library
+uses:
+  common: !include ../common/dataTypes.raml
+  link: !include ../links/link.raml
+  user: !include ../users/user.raml
+types:
+  Vote:
+    type: object
+    properties:
+      grade:
+        type: string
+        enum:
+          - up
+          - down
+      date_voted: common.Date
+  LinkVote:
+    type: Vote
+    properties:
+      user: user.User
+  UserVote:
+    type: Vote
+    example: !include userVote.json
+    properties:
+      link: link.Link
