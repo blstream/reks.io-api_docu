@@ -12,38 +12,204 @@ traits:
           required: false
           example: 80
           default: 10
-
 resourceTypes:
+  Base:
+    get?:
+      responses:
+        400:
+          description: Common error to communicate invalid request
+          body:
+            application/json:
+              properties:
+                code:
+                  description: This is code of the error - should be unique across app
+                  type: string
+        401:
+          description: unauthorized
+        403:
+          description: forbidden
+        404:
+          description: resource not found
+        500:
+          description: server error
+    put?:
+      responses:
+        400:
+          description: Common error to communicate invalid request
+          body:
+            application/json:
+              properties:
+                code:
+                  description: This is code of the error - should be unique across app
+                  type: string
+        401:
+          description: unauthorized
+        403:
+          description: forbidden
+        404:
+          description: resource not found
+        500:
+          description: server error
+    post?:
+      responses:
+        400:
+          description: Common error to communicate invalid request
+          body:
+            application/json:
+              properties:
+                code:
+                  description: This is code of the error - should be unique across app
+                  type: string
+        401:
+          description: unauthorized
+        403:
+          description: forbidden
+        404:
+          description: resource not found
+        500:
+          description: server error
+    delete?:
+      responses:
+        400:
+          description: Common error to communicate invalid request
+          body:
+            application/json:
+              properties:
+                code:
+                  description: This is code of the error - should be unique across app
+                  type: string
+        401:
+          description: unauthorized
+        403:
+          description: forbidden
+        404:
+          description: resource not found
+        500:
+          description: server error
   Collection:
     get:
+      description: Get all <<resourcePathName>>
       responses:
         200:
           body:
             application/json:
               type: (<<item>>)[]
+        400:
+          description: Common error to communicate invalid request
+          body:
+            application/json:
+              properties:
+                code:
+                  description: This is code of the error - should be unique across app
+                  type: string
+        401:
+          description: unauthorized
+        403:
+          description: forbidden
+        404:
+          description: resource not found
+        500:
+          description: server error
     post?:
+      description: Create a new <<resourcePathName | !singularize>>
       body:
         application/json:
           type: <<item>>
-
-  Member:
-    get:
       responses:
         200:
           body:
             application/json:
               type: <<item>>
+        400:
+          description: Common error to communicate invalid request
+          body:
+            application/json:
+              properties:
+                code:
+                  description: This is code of the error - should be unique across app
+                  type: string
+        401:
+          description: unauthorized
+        403:
+          description: forbidden
+        404:
+          description: resource not found
+        500:
+          description: server error
+  Member:
+    description: Instance of <<item>>
+    get:
+      description: Get the instance of <<item>> by <<resourcePathName>>
+      responses:
+        200:
+          body:
+            application/json:
+              type: <<item>>
+        400:
+          description: Common error to communicate invalid request
+          body:
+            application/json:
+              properties:
+                code:
+                  description: This is code of the error - should be unique across app
+                  type: string
+        401:
+          description: unauthorized
+        403:
+          description: forbidden
+        404:
+          description: resource not found
+        500:
+          description: server error
     put:
+      description: Update <<item>>
       body:
         application/json:
           type: <<item>>
-    delete:
       responses:
         204:
+        400:
+          description: Common error to communicate invalid request
+          body:
+            application/json:
+              properties:
+                code:
+                  description: This is code of the error - should be unique across app
+                  type: string
+        401:
+          description: unauthorized
+        403:
+          description: forbidden
+        404:
+          description: resource not found
+        500:
+          description: server error
+    delete:
+      description: Remove <<item>>
+      responses:
+        204:
+        400:
+          description: Common error to communicate invalid request
+          body:
+            application/json:
+              properties:
+                code:
+                  description: This is code of the error - should be unique across app
+                  type: string
+        401:
+          description: unauthorized
+        403:
+          description: forbidden
+        404:
+          description: resource not found
+        500:
+          description: server error
   PageableCollection:
     type:  { Collection: {item : <<item>>} }
+    description: Pageable collection of <<resourcePathName>>
     get:
       is: [pageable]
+      description: One page of <<resourcePathName>> collection
       responses:
         200:
           body:
@@ -53,3 +219,42 @@ resourceTypes:
                 start: number
                 end: number
                 data: (<<item>>)[]
+        400:
+          description: Common error to communicate invalid request
+          body:
+            application/json:
+              properties:
+                code:
+                  description: This is code of the error - should be unique across app
+                  type: string
+        401:
+          description: unauthorized
+        403:
+          description: forbidden
+        404:
+          description: resource not found
+        500:
+          description: server error
+    post?:
+      description: Create a new <<resourcePathName | !singularize>>
+      responses:
+        200:
+          body:
+            application/json:
+              type: <<item>>
+        400:
+          description: Common error to communicate invalid request
+          body:
+            application/json:
+              properties:
+                code:
+                  description: This is code of the error - should be unique across app
+                  type: string
+        401:
+          description: unauthorized
+        403:
+          description: forbidden
+        404:
+          description: resource not found
+        500:
+          description: server error

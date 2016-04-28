@@ -60,14 +60,24 @@ securedBy: [basic]
     /Subscriptions:
       type:  { resType.PageableCollection: {item : dataType.Subscription} }
       /{username}:
+        type: resType.Base
         put:
           description: add user to a group
+          responses:
+            204:
         delete:
           description: remove user from a group
+          responses:
+            204:
     /Links:
       type:  { resType.PageableCollection: {item : dataType.Link} }
       /{LinkId}:
+        type: resType.Base
         put:
           description: add link to a group
+          responses:
+            204:
         delete:
           description: remove link from a group
+          responses:
+            204:
