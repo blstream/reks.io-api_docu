@@ -1,0 +1,145 @@
+<!DOCTYPE HTML><html><head><title>reksio API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/kevinrenskers/raml2html 2.4.0"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $('.page-header pre code, .top-resource-description pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+
+        $('[data-toggle]').click(function() {
+          var selector = $(this).data('target') + ' pre code';
+          $(selector).each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });
+
+        // open modal on hashes like #_action_get
+        $(window).bind('hashchange', function(e) {
+          var anchor_id = document.location.hash.substr(1); //strip #
+          var element = $('#' + anchor_id);
+
+          // do we have such element + is it a modal?  --> show it
+          if (element.length && element.hasClass('modal')) {
+            element.modal('show');
+          }
+        });
+
+        // execute hashchange on first page load
+        $(window).trigger('hashchange');
+
+        // remove url fragment on modal hide
+        $('.modal').on('hidden.bs.modal', function() {
+          try {
+            if (history && history.replaceState) {
+                history.replaceState({}, '', '#');
+            }
+          } catch(e) {}
+        });
+      });
+    </script><style>
+      .hljs {
+        background: transparent;
+      }
+      .parent {
+        color: #999;
+      }
+      .list-group-item > .badge {
+        float: none;
+        margin-right: 6px;
+      }
+      .panel-title > .methods {
+        float: right;
+      }
+      .badge {
+        border-radius: 0;
+        text-transform: uppercase;
+        width: 70px;
+        font-weight: normal;
+        color: #f3f3f6;
+        line-height: normal;
+      }
+      .badge_get {
+        background-color: #63a8e2;
+      }
+      .badge_post {
+        background-color: #6cbd7d;
+      }
+      .badge_put {
+        background-color: #22bac4;
+      }
+      .badge_delete {
+        background-color: #d26460;
+      }
+      .badge_patch {
+        background-color: #ccc444;
+      }
+      .list-group, .panel-group {
+        margin-bottom: 0;
+      }
+      .panel-group .panel+.panel-white {
+        margin-top: 0;
+      }
+      .panel-group .panel-white {
+        border-bottom: 1px solid #F5F5F5;
+        border-radius: 0;
+      }
+      .panel-white:last-child {
+        border-bottom-color: white;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      .panel-white .panel-heading {
+        background: white;
+      }
+      .tab-pane ul {
+        padding-left: 2em;
+      }
+      .tab-pane h2 {
+        font-size: 1.2em;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ddd;
+      }
+      .tab-pane h3 {
+        font-size: 1.1em;
+      }
+      .tab-content {
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+      }
+      #sidebar {
+        margin-top: 30px;
+        padding-right: 5px;
+        overflow: auto;
+        height: 90%;
+      }
+      .top-resource-description {
+        border-bottom: 1px solid #ddd;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description {
+        border-bottom: 1px solid #fcfcfc;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description p:last-child {
+        margin: 0;
+      }
+      .list-group .badge {
+        float: left;
+      }
+      .method_description {
+        margin-left: 85px;
+      }
+      .method_description p:last-child {
+        margin: 0;
+      }
+      .list-group-item {
+        cursor: pointer;
+      }
+      .list-group-item:hover {
+        background-color: #f5f5f5;
+      }
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>reksio API documentation <small>v1</small></h1><p>http://reks.io</p></div><div class="panel panel-default"><div class="panel-heading"><h3 id="Users" class="panel-title">/Users</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_Users"><span class="parent"></span>/Users</a> <span class="methods"><a href="#Users_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_Users" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#Users_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="Users_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/Users</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li class="active"><a href="#Users_post_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="Users_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_Users__username__Votes"><span class="parent">/Users/{username}</span>/Votes</a> <span class="methods"><a href="#Users__username__Votes_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_Users__username__Votes" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#Users__username__Votes_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="Users__username__Votes_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/Users/{username}</span>/Votes</h4></div><div class="modal-body"><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by basic<p>basic authorization <a href="https://tools.ietf.org/html/rfc2617">https://tools.ietf.org/html/rfc2617</a></p></div><ul class="nav nav-tabs"><li class="active"><a href="#Users__username__Votes_post_request" data-toggle="tab">Request</a></li><li><a href="#Users__username__Votes_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="Users__username__Votes_post_request"><h3>URI Parameters</h3><ul><li><strong>username</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p></div><div class="tab-pane" id="Users__username__Votes_post_securedby">Secured by basic</div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="Links" class="panel-title">/Links</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_Links"><span class="parent"></span>/Links</a> <span class="methods"><a href="#Links_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_Links" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#Links_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="Links_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/Links</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li class="active"><a href="#Links_post_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="Links_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_Links__LinkId__Stats"><span class="parent">/Links/{LinkId}</span>/Stats</a> <span class="methods"></span></h4></div><div id="panel_Links__LinkId__Stats" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>stats for link</p></div><div class="list-group"></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_Links__LinkId__Votes"><span class="parent">/Links/{LinkId}</span>/Votes</a> <span class="methods"><a href="#Links__LinkId__Votes_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_Links__LinkId__Votes" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#Links__LinkId__Votes_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="Links__LinkId__Votes_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/Links/{LinkId}</span>/Votes</h4></div><div class="modal-body"><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by basic<p>basic authorization <a href="https://tools.ietf.org/html/rfc2617">https://tools.ietf.org/html/rfc2617</a></p></div><ul class="nav nav-tabs"><li class="active"><a href="#Links__LinkId__Votes_post_request" data-toggle="tab">Request</a></li><li><a href="#Links__LinkId__Votes_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="Links__LinkId__Votes_post_request"><h3>URI Parameters</h3><ul><li><strong>LinkId</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p></div><div class="tab-pane" id="Links__LinkId__Votes_post_securedby">Secured by basic</div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="Groups" class="panel-title">/Groups</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_Groups"><span class="parent"></span>/Groups</a> <span class="methods"><a href="#Groups_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_Groups" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#Groups_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="Groups_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/Groups</h4></div><div class="modal-body"><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by basic<p>basic authorization <a href="https://tools.ietf.org/html/rfc2617">https://tools.ietf.org/html/rfc2617</a></p></div><ul class="nav nav-tabs"><li><a href="#Groups_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane" id="Groups_post_securedby">Secured by basic</div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_Groups__GroupId__Subscriptions__username_"><span class="parent">/Groups/{GroupId}/Subscriptions</span>/{username}</a> <span class="methods"><a href="#Groups__GroupId__Subscriptions__username__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#Groups__GroupId__Subscriptions__username__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_Groups__GroupId__Subscriptions__username_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#Groups__GroupId__Subscriptions__username__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>add user to a group</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#Groups__GroupId__Subscriptions__username__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>remove user from a group</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="Groups__GroupId__Subscriptions__username__put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/Groups/{GroupId}/Subscriptions</span>/{username}</h4></div><div class="modal-body"><div class="alert alert-info"><p>add user to a group</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by basic<p>basic authorization <a href="https://tools.ietf.org/html/rfc2617">https://tools.ietf.org/html/rfc2617</a></p></div><ul class="nav nav-tabs"><li class="active"><a href="#Groups__GroupId__Subscriptions__username__put_request" data-toggle="tab">Request</a></li><li><a href="#Groups__GroupId__Subscriptions__username__put_response" data-toggle="tab">Response</a></li><li><a href="#Groups__GroupId__Subscriptions__username__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="Groups__GroupId__Subscriptions__username__put_request"><h3>URI Parameters</h3><ul><li><strong>GroupId</strong>: <em>required (string)</em></li><li><strong>username</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="Groups__GroupId__Subscriptions__username__put_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2></div><div class="tab-pane" id="Groups__GroupId__Subscriptions__username__put_securedby">Secured by basic</div></div></div></div></div></div><div class="modal fade" tabindex="0" id="Groups__GroupId__Subscriptions__username__delete"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/Groups/{GroupId}/Subscriptions</span>/{username}</h4></div><div class="modal-body"><div class="alert alert-info"><p>remove user from a group</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by basic<p>basic authorization <a href="https://tools.ietf.org/html/rfc2617">https://tools.ietf.org/html/rfc2617</a></p></div><ul class="nav nav-tabs"><li class="active"><a href="#Groups__GroupId__Subscriptions__username__delete_request" data-toggle="tab">Request</a></li><li><a href="#Groups__GroupId__Subscriptions__username__delete_response" data-toggle="tab">Response</a></li><li><a href="#Groups__GroupId__Subscriptions__username__delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="Groups__GroupId__Subscriptions__username__delete_request"><h3>URI Parameters</h3><ul><li><strong>GroupId</strong>: <em>required (string)</em></li><li><strong>username</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="Groups__GroupId__Subscriptions__username__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2></div><div class="tab-pane" id="Groups__GroupId__Subscriptions__username__delete_securedby">Secured by basic</div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_Groups__GroupId__Links__LinkId_"><span class="parent">/Groups/{GroupId}/Links</span>/{LinkId}</a> <span class="methods"><a href="#Groups__GroupId__Links__LinkId__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#Groups__GroupId__Links__LinkId__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_Groups__GroupId__Links__LinkId_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#Groups__GroupId__Links__LinkId__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>add link to a group</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#Groups__GroupId__Links__LinkId__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>remove link from a group</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="Groups__GroupId__Links__LinkId__put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/Groups/{GroupId}/Links</span>/{LinkId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>add link to a group</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by basic<p>basic authorization <a href="https://tools.ietf.org/html/rfc2617">https://tools.ietf.org/html/rfc2617</a></p></div><ul class="nav nav-tabs"><li class="active"><a href="#Groups__GroupId__Links__LinkId__put_request" data-toggle="tab">Request</a></li><li><a href="#Groups__GroupId__Links__LinkId__put_response" data-toggle="tab">Response</a></li><li><a href="#Groups__GroupId__Links__LinkId__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="Groups__GroupId__Links__LinkId__put_request"><h3>URI Parameters</h3><ul><li><strong>GroupId</strong>: <em>required (string)</em></li><li><strong>LinkId</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="Groups__GroupId__Links__LinkId__put_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2></div><div class="tab-pane" id="Groups__GroupId__Links__LinkId__put_securedby">Secured by basic</div></div></div></div></div></div><div class="modal fade" tabindex="0" id="Groups__GroupId__Links__LinkId__delete"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/Groups/{GroupId}/Links</span>/{LinkId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>remove link from a group</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by basic<p>basic authorization <a href="https://tools.ietf.org/html/rfc2617">https://tools.ietf.org/html/rfc2617</a></p></div><ul class="nav nav-tabs"><li class="active"><a href="#Groups__GroupId__Links__LinkId__delete_request" data-toggle="tab">Request</a></li><li><a href="#Groups__GroupId__Links__LinkId__delete_response" data-toggle="tab">Response</a></li><li><a href="#Groups__GroupId__Links__LinkId__delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="Groups__GroupId__Links__LinkId__delete_request"><h3>URI Parameters</h3><ul><li><strong>GroupId</strong>: <em>required (string)</em></li><li><strong>LinkId</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="Groups__GroupId__Links__LinkId__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2></div><div class="tab-pane" id="Groups__GroupId__Links__LinkId__delete_securedby">Secured by basic</div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#Users">/Users</a></li><li><a href="#Links">/Links</a></li><li><a href="#Groups">/Groups</a></li></ul></div></div></div></div></body></html>
