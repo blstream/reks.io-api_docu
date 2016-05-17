@@ -1,0 +1,33 @@
+{
+  "name": "reks.io-api_docu",
+  "version": "1.0.0",
+  "description": "##Api workbench",
+  "main": "generate-html.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "osprey-mock-service": "^0.1.0",
+    "raml-1-parser": "^0.1.0-beta.11",
+    "raml-parser": "^0.8.17",
+    "raml-server": "^0.1.5",
+    "raml2html": "^2.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "node generate-html.js api.raml",
+    "gh-pages": "git subtree push --prefix dist origin gh-pages",
+    "deploy": "npm run dist && npm run gh-page"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blstream/reks.io-api_docu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blstream/reks.io-api_docu/issues"
+  },
+  "homepage": "https://github.com/blstream/reks.io-api_docu#readme"
+}
