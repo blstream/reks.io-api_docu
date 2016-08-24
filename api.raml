@@ -1,18 +1,18 @@
 #%RAML 1.0
 title: reksio
 uses:
-  resType: !include data/common/resourceTypes.raml
-  dataType: !include data/types.raml
+  resType: data/common/resourceTypes.raml
+  dataType: data/types.raml
 version: v1
 baseUri: http://reks.io
 
 securitySchemes:
-- basic:
+  basic:
     description: |
       basic authorization https://tools.ietf.org/html/rfc2617
     type: Basic Authentication
 
-securedBy: [basic]
+securedBy: [ basic ]
 
 /Users:
   type:  { resType.PageableCollection: {item : dataType.User} }

@@ -1,10 +1,10 @@
 #%RAML 1.0 Library
 uses:
-  User: !include users/user.raml
-  Group: !include groups/group.raml
-  Link: !include links/link.raml
-  Vote: !include votes/votes.raml
-  Subscription: !include subscription/subscription.raml
+  User: users/user.raml
+  Group: groups/group.raml
+  Link: links/link.raml
+  Vote: votes/votes.raml
+  Subscription: subscription/subscription.raml
 
 types:
   User: User.User
@@ -13,5 +13,6 @@ types:
   NewLink: Link.NewLink
   Subscription: Subscription.Subscription
   Group: Group.Group
+  Vote: Vote.Vote
   UserVote: Vote.UserVote
   LinkVote: Vote.LinkVote
