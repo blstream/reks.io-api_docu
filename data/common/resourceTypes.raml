@@ -1,17 +1,17 @@
 #%RAML 1.0 Library
 traits:
-  - pageable:
-      queryParameters:
-        offset:
-          type: integer
-          required: false
-          example: 20
-          default: 0
-        limit:
-          type: integer
-          required: false
-          example: 80
-          default: 10
+  pageable:
+    queryParameters:
+      offset:
+        type: integer
+        required: false
+        example: 20
+        default: 0
+      limit:
+        type: integer
+        required: false
+        example: 80
+        default: 10
 resourceTypes:
   Base:
     get?:
@@ -87,7 +87,7 @@ resourceTypes:
         500:
           description: server error
   Collection:
-    get:
+    get?:
       description: Get all <<resourcePathName>>
       responses:
         200:
@@ -212,8 +212,10 @@ resourceTypes:
       description: One page of <<resourcePathName>> collection
       responses:
         200:
+          description: Common error to communicate invalid request
           body:
             application/json:
+              type: object
               properties:
                 total: number
                 start: number
